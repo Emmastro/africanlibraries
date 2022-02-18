@@ -1,0 +1,23 @@
+{%extends "BaseFiles/OurBooks.html"%}
+{% load static %}
+{% load tags %}
+{% load crispy_forms_tags %}
+	
+{% block extra_style %}
+	{% include "BaseFiles/head_links.html" %}
+{% endblock extra_style %}
+
+{%block contain%}
+
+<div class="main-contain">
+
+<form method="POST" action={% url "account_settings" user.id %}>
+	{% csrf_token %}
+  {{form.as_p}}
+
+<input type="submit" value="Update" title="Update"/>
+
+</form>
+  
+</div>
+{%endblock contain%}

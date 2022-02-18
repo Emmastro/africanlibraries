@@ -1,0 +1,70 @@
+
+{%load static%}
+
+<html lang="en-US">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href= {% static "bootstrap-4/css/bootstrap.min.css" %}>
+	
+<link rel="stylesheet" type="text/css" href={% static "style_registration.css" %}>
+
+<title>African Libraries - {{page_title}}</title>
+{#Background#}
+<style type="text/css" id="clc-columns-style">
+	.ml-container .ml-extra-div {
+	background-image: url({%static "back_login_1.jpg" %});
+	background-color: rgba(241, 241, 241, 1);
+}
+</style>
+<style type="text/css" id="clc-custom-css">
+	
+</style>
+
+	</head>
+{#Contain#}
+	<body class="login login-action-login wp-core-ui  locale-en-us ml-login-vertical-align-2">
+
+	<div class="ml-container">
+		<div class="ml-extra-div"></div>
+		<div class="ml-form-container">
+			<div id="login">
+
+	{% block form %}
+		
+	{% endblock form %}
+
+
+	</div>
+	</div></div>
+	</body>
+<script type='text/javascript' src={% static "js/jquery-3.4.1.min.js" %}></script>
+
+<script type="text/javascript">
+
+ $("#id_username").change(function () {
+
+  var username = $(this).val();
+
+ $.ajax({
+        url: '/ajax/validate_username/',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            alert("A user with this username already exists.");
+            
+          }
+        }
+
+});
+});
+
+  </script>
+    
+</script>
+
+</html>
