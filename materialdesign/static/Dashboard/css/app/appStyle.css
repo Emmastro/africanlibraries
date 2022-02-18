@@ -1,0 +1,13 @@
+/*.nav-item a p{
+	color: white;
+	font-weight: bold;
+}
+
+.card-footer, .card-body, figure{
+	color:white !important;
+	
+}*/
+
+figcaption{
+	margin-left:8%;
+}

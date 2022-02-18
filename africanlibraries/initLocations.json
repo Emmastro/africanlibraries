@@ -1,0 +1,39 @@
+[
+	{
+	"SchoolName":"African Leadership Academy",
+	"Country": "South Africa",
+	"Town": "Johannesburg",
+	"Data":
+		{
+			"Boys Dorm Library Classified-Jeshi": [4,4],
+			"Boys Dorm Library Kushinga-Office": [4,4],
+			"Girls Dorm Library Athena-Tawana": [4,4],
+			"Girls Dorm Library Maliyika-Valkyrie": [4,4],
+
+			"Green Room":[5,4],
+			"Leadership Library":[1,51],
+			"African Studies Library":[1,51],
+			"Barbar Library":[2,1],
+			"LC Library":[4,1]
+		}
+	},
+
+	{
+	"SchoolName":"College Notre Dame",
+	"Country": "Democratic Republic of Congo",
+	"Town": "Kinshasa",
+	"Data":
+		{
+			"Boys Dorm Library Classified-Jeshi": [4,4],
+			"Boys Dorm Library Kushinga-Office": [4,4],
+			"Girls Dorm Library Athena-Tawana": [4,4],
+			"Girls Dorm Library Maliyika-Valkyrie": [4,4],
+
+			"Green Room":[5,4],
+			"Leadership Library":[1,51],
+			"African Studies Library":[1,51],
+			"Barbar Library":[2,1],
+			"LC Library":[4,1]
+		}
+	}
+]

@@ -1,0 +1,72 @@
+{% extends 'dashboard.html' %}
+{% load tags %}
+
+{% block main %}
+
+
+<div class="card">
+    <div class="card-header card-header-primary">
+      {{book}} - details
+    </div>
+  <div class="card-body">
+
+    <div class="row">
+      
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+      <figure class="card" id="book-{{book.id}}">
+
+        <div class="card-body">
+
+            <img class="cover" width="200" height="248" src="{{book.image_url|default_if_none:'/static/no_book_cover.jpg'}}" alt="{{book.data.title}}"  alt="Book" />
+            </a>
+        <div class="book-card-detail">
+            {{book.data.title}}<br>
+            <span id="nbr-reads">{{book.nbr_read}}</span> reads | <span id="nbr-likes">{{book.nbr_like}}</span> likes
+        </div>
+        <form method="POST" action={% url 'book_detail' book.id%}>
+          {% csrf_token %}
+          <button class="btn btn-round" name='book' value='{{book.id}}'>{{user|book_statut:book}}</button>
+        </form>
+        </div>
+      </figure>
+      
+      </div> 
+      
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+        <br><br>
+        <p>Author: {% for author in book.data.get_authors %}
+        <a href="{% url "author_detail" author.id %}">{{author}}</a>
+        {% endfor %}</p>
+
+        <p>Subtitle : {{book.data.subtitle|default_if_none:'-'}} </p>
+        
+        <p>Category: {% for cat in book.data.get_category %}
+          <a href="{% url "category" cat.id %}">{{cat}}</a> | 
+          {% endfor %}
+        </p>
+        <p>Number : {{book.number}}</p>
+        <p>Library : <a href="">{{book.get_library}}</a></p>
+        <p>Shelf Id : {{book.get_shelf}}</p>
+        <p>Step Id : {{book.get_step}}</p>      
+     
+      </div>             
+
+    </div>
+
+    <div class="row" style="margin:5px">
+        <h4>Description</h4>
+        <p>{{book.data.description}}</p>
+    </div>
+    
+    <div class="row" style="margin:5px">
+        
+        <h4>Comments</h4>
+        {#Comment widget#}
+        {% include "comment_widget.html" %}
+
+    </div>
+  </div>
+    
+</div>
+
+{% endblock %}

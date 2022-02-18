@@ -1,0 +1,40 @@
+<form class="form" method="POST" action={% url "login" %}>
+  {% csrf_token %}
+
+  <div class="card-header card-header-primary text-center">
+    <h4 class="card-title">Login</h4>
+    <br>
+  </div>
+  <p class="description text-center">Start your journey with us</p>
+  
+  <div class="card-body">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="material-icons">face</i>
+        </span>
+      </div>
+      {#<input name="userName" type="text" class="form-control" placeholder="Username ..."/>#}
+      {{form.username}}
+
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="material-icons">lock_outline</i>
+        </span>
+      </div>
+      {#<input name="password" type="password" class="form-control" placeholder="Password...">#}
+      {{form.password}}
+    </div>
+
+  </div>
+
+  <div class="text-center">
+  <button type="submit" class="btn btn-primary" >Login</button>
+  </div>
+  <div class="footer text-center">
+    <p style="color:black">Not yet with us? <a href="">Register</a></p>
+  </div>
+</form>

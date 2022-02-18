@@ -1,0 +1,11 @@
+<figure class="card">
+<div class="card-body">
+    <a href={% url 'book_detail' book.id %} id="{{book.id}}">
+    <img class="cover" width="200" height="248" src="{{book.image_url}}" alt="{{book.data.title}}"  alt="Book" />
+    </a>
+</div>
+<figcaption>
+    {{book.data.title}} <br> 
+    {{book.nbr_read}} reads | {{book.nbr_like}} likes
+</figcation>
+</figure>

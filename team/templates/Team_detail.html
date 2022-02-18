@@ -1,0 +1,36 @@
+{%extends "BaseFiles/OurBooks.html"%}
+{% load static %}
+{% load tags %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{% block extra_style %}
+	<link rel="stylesheet" type="text/css" href= {% static "style1.css" %}>
+
+{% endblock extra_style %}
+
+{%block contain%}
+
+<div class="main-contain">
+
+<div class="row">
+	<div class="col-xs-7 col-sm-7 col-md-3 col-lg-3">
+		<img width="200px" height="200" src={{librarian.image_url}} class="attachment-full size-full" alt="{{librarian.first_name}}" style="border-radius: 20%;">
+	</div>
+	<div class="col-xs-10 col-sm-10 col-md-6 col-lg-6">
+		<h2>{{librarian.first_name}} {{librarian.last_name}}</h2>
+		
+
+		<p>{{librarian.profil}}</p>
+	</div>
+</div>
+
+</div>
+{%endblock%}

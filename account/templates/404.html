@@ -1,0 +1,97 @@
+{%extends "template/BaseFiles/OurBooks.html"%}
+{% load static %}
+{% load tags %}
+
+
+{% block extra_style %}
+	<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+	<script src={% static "waypoints/lib/jquery.waypoints.min.js" %}></script>
+	<script src={% static "waypoints/shortcuts/infinite.min.js" %}></script>
+	<link rel="stylesheet" type="text/css" href={%static "style1.css"%}>
+{% endblock extra_style %}
+
+{% block search_book %}
+	{#Search in all books#}
+	<form name="searchForm" id="loginform" class='search-form' action={%url 'searchBook'%} method="get">			
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search book" style="width:50%" value="" name="key" required>
+		<input type="submit" name='by' value="Search" class="search-submit">
+
+	</form>		
+{% endblock search_book %}
+
+{%block contain%}
+
+<div class="main-contain">
+<div class="book-list infinite-container">
+
+	{%if books|length > 0%}
+		
+		<p>{{books_found}} books found</p>
+		{%for book in books%}
+		<div class="book-item infinite-item">
+			{% if book.image_exist %}
+			<a href={%url 'book_detail' book.id%}>
+				<img class="cover" src="{{book.image_url}}" alt="{{book.title}}" />
+			</a>
+				{% else %}
+			<a href={%url 'book_detail' book.id%}>
+				<div class = "cover no-image-cover">
+				<p>{{book.title}}</p>
+				<p>{{book.author}}</p>
+				</div>
+			</a>
+				{% endif %}	
+			<div  class="book-detail-2">
+				<p class="book-title">{{book.title}}</p>
+				<p>{{book.nb_read}} reads | {{book.likes}} likes </p>
+
+			</div>
+		</div>
+
+		{%endfor%}
+	{%else%}
+		<div>
+			<p>No such book found.</p>
+		</div>
+	{%endif%}
+
+
+</div>
+{% if is_paginated %}
+
+	 {% if page_obj.has_next %}
+    	<a class="infinite-more-link" href="?page={{ books.next_page_number }}"></a>
+ 	 {% endif %}
+
+  <script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('.loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        $('.loading').hide();
+      }
+    });
+  </script>
+
+
+	
+	<p style="color: white;">-.-.-.-.-.-.-.-.-.-.-.-.-.-.-</p>
+	<div class="pagination" style="margin-top: 0%;display: block; ">
+	{% if page_obj.has_previous %}
+		<a href="?page={{ page_obj.previous_page_number }}">
+		<button>Back</button></a> —
+	{% endif %}
+	Page {{ page_obj.number }} sur 
+	{{page_obj.paginator.num_pages }}
+	{% if page_obj.has_next %}
+		— <a href="?page={{ page_obj.next_page_number }}"><button>Next</button></a>
+	{% endif %}
+	</div>
+	
+
+	{% endif %}
+</div>
+{%endblock%}

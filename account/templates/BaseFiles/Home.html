@@ -1,0 +1,35 @@
+{% extends "Base_files/Main_home.html" %}
+
+{% block mainsections %}
+	
+	<form action={%url 'sendMessage'%} method="post" name="content-form" id="content-form" class="content-form">
+		{% csrf_token %} 
+		
+        <fieldset class="content-form-field-text elementor-column elementor-col-50">
+            <input style="display: inline;" type="text" name="name" id="name" placeholder="Your Name">
+         </fieldset>
+
+        <fieldset class="content-form-field-text elementor-column elementor-col-50">
+
+            <input style="display: inline;" type="text" name="email" id="email" placeholder="Your Email">
+		</fieldset>
+
+        <fieldset class="content-form-field-text elementor-column elementor-col-100">
+            <label for="subject"></label>
+            <input type="text" name="subject" id="subject" placeholder="Your Subject">
+		</fieldset>
+		
+
+        <fieldset class="content-form-field-textarea elementor-column elementor-col-100">
+        	<label for="message"></label>
+        	<textarea name="message" id="message" placeholder="Your message" cols="30" rows="5"></textarea>
+        </fieldset>
+
+        <fieldset class="submit-form contact">
+            <button type="submit" name="submit" value="submit-contact" class="">send message</button>
+        </fieldset>
+
+		</form>
+
+{% endblock mainsections %}
+	
