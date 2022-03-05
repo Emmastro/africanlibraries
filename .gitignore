@@ -2,12 +2,8 @@ $ cat .gitignore
 # Local settings
 africanlibraries/settings/local.py
 settings/local.py
-#africanlibraries/static/
 */media/
-africanlibraries/settings/__pycache__/
-africanlibraries/env/
-africanlibraries/src/*/migrations/
-# africanlibraries/static/
+*/__pycache__/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -101,9 +97,7 @@ celerybeat-schedule
 # Environments
 .env
 .venv
-ENV/
-env/
-
+env-africanlibraries
 
 # Spyder project settings
 .spyderproject

@@ -3,11 +3,9 @@ import requests
 
 import pandas as pd
 
-api_token = 'AIzaSyAyxqmIKa6KChE5_PDNHz-Pi5b51iS6sgQ'
+api_token = "token" # TODO: get token from env variables
 api_url_base = 'https://www.googleapis.com/books/v1/'
 
-#headers = {'Content-Type': 'application/json',
-#           'Authorization': 'glass-timing-229520 {0}'.format(api_token)}
 
 datas = pd.read_excel('../../Datas.xlsx')
 
@@ -18,14 +16,11 @@ def get_book_details(search):
 
     response = requests.get(api_url)#, headers=headers)
     if response.status_code == 200:
-        content = json.loads(response.content.decode('utf-8'))
         
-        #book_info = content.get('volumeInfo')
-        #print(response.content)
         return json.loads(response.content.decode('utf-8'))
     else:
         print(response.status_code)
-        return None
+
 #title subtitle author publisher publishedDate description industryIdentifiers pageCount categories
 
 for i in range(191,207):

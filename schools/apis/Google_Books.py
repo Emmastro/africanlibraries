@@ -1,11 +1,8 @@
 import json
 import requests
 
-api_token = 'AIzaSyAyxqmIKa6KChE5_PDNHz-Pi5b51iS6sgQ'
+api_token = 'token' # TODO: get token from env variables
 api_url_base = 'https://www.googleapis.com/books/v1/'
-
-#headers = {'Content-Type': 'application/json',
-#           'Authorization': 'glass-timing-229520 {0}'.format(api_token)}
 
 def get_book_details(search):
 
