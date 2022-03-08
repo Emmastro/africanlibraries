@@ -13,7 +13,7 @@ python3 -m pip install --user virtualenv
 Clone the repository:
 
 ```bash
-git clone git@github.com:Faith-qa/uberpool.git
+git clone git@github.com:Emmastro/africanlibraries.git
 ```
 
 Cd on the root folder of the project, and create the virtual environment with
