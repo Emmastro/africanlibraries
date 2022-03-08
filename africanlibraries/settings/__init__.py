@@ -1,12 +1,12 @@
-#import django_heroku
-try:
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+if os.environ.get('RUNNING_ENV') == 'local':
 	from .base import*
 	from .local import *
-	#django_heroku.settings(locals())
-except Exception as e:
+else:
 	from .base import *
 	from .production import *
-
-#from .amazon_files import *
-
-	#django_heroku.settings(locals())

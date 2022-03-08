@@ -1,7 +1,4 @@
 $ cat .gitignore
-# Local settings
-africanlibraries/settings/local.py
-settings/local.py
 */media/
 */__pycache__/
 # Byte-compiled / optimized / DLL files
@@ -62,7 +59,6 @@ coverage.xml
 
 # Django stuff:
 *.log
-local_settings.py
 */db.sqlite3
 
 # Flask stuff:
